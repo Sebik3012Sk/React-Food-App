@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <div>
         <nav>
-            <ul className="flex flex-row items-center w-full bg-red-950 text-white h-16 shadow-sm shadow-white">
+            <ul className="flex flex-row items-center w-full bg-red-950 fixed left-0 right-0 text-white h-16 shadow-sm shadow-white">
                 <Link className="m-2 hover:border-b-2 border-white p-2 transition-all" to="/">
                     <li>Home</li>
                 </Link>

@@ -3,6 +3,8 @@ import NavBar from '../components/NavBar';
 import HeaderText from '../components/HeaderText';
 import MainButton from '../components/MainButton';
 import bg_image from "../images/bg-image.jpg";
+import Fotogallery from '../components/Fotogallery';
+import Footer from '../components/Footer';
 
 const Home = () => {
 
@@ -12,12 +14,21 @@ const Home = () => {
             <NavBar />
 
             <div className="flex justify-center items-center content-center">
-              <HeaderText font_weight={`font-semibold`} headerText="React Food App" color="white" underline={false} />
+              <HeaderText font_weight={`font-semibold`} headerText="React Food App" color="black" underline={false} />
               <MainButton id={1} buttonText="All Recipes" />
             </div>
 
+
+            <section id="fotogallery" className="mt-[28%]">
+              <HeaderText font_weight={"font-semibold"} headerText="Fotogallery" color="black" underline={true} />
+              <Fotogallery />
+            </section>
+
+            <Footer />
+
         </div>
 
+        
 
     </div>
 
