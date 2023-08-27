@@ -19,7 +19,7 @@ const Home = () => {
             </div>
 
 
-            <section id="fotogallery" className="mt-[28%]">
+            <section id="fotogallery" className="mt-[75%] sm:mt-[28%]">
               <HeaderText font_weight={"font-semibold"} headerText="Fotogallery" color="black" underline={true} />
               <Fotogallery />
             </section>
