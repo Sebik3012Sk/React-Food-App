@@ -4,6 +4,8 @@ import MainFood from "./pages/MainFood";
 import Deserts from "./pages/Deserts";
 import AllRecipes from "./pages/AllRecipes";
 import OneRecipe from "./components/OneRecipe";
+import AdminPage from "./admin/AdminPage";
+import AddRecipe from "./admin/AddRecipe";
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
           <Route path="/deserts" element={ <Deserts /> } />
           <Route path="/all-recipes" element={ <AllRecipes /> } />
           <Route path="/one-recipe/:recipe_id" element={ <OneRecipe /> } />
+          <Route path="/admin-system/:password" element={ <AdminPage /> } />
+          <Route path="/add-recipe" element={ <AddRecipe /> } />
         </Routes>
       </BrowserRouter>
     </>
