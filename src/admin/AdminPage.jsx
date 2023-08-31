@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams } from "react-router-dom";
 import AdminNavBar from './AdminNavBar';
 import AdminAllRecipes from './AdminAllRecipes';
+import Footer from '../components/Footer';
 
 const AdminPage = () => {
 
@@ -16,7 +17,7 @@ const AdminPage = () => {
             <AdminNavBar />
             <AdminAllRecipes />
 
-            <h1>Welcome in Admin System</h1>
+            <Footer />
         </div>
     )
   } else {
