@@ -14,7 +14,6 @@ const Home = () => {
             <NavBar />
 
             <div className="flex justify-center items-center content-center">
-              <HeaderText font_weight={`font-normal`} headerText="React Food App" color="black" underline={false} />
               <MainButton id={1} buttonText="All Recipes" />
             </div>
 

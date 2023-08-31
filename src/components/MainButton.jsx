@@ -9,7 +9,7 @@ const MainButton = ({buttonText,id}) => {
     if(id === 1) {
       return (
         <div className="">
-          <button onClick={buttonToAllRecipes} className="border-2 border-white bg-red-800 text-white p-3 rounded-xl mt-32 ml-[-150px]" type="button">{buttonText}</button>
+          <button onClick={buttonToAllRecipes} className="border-2 border-white bg-red-800 text-white p-3 pl-5 pr-5 rounded-xl mt-32" type="button">{buttonText}</button>
         </div>
       )
     } else {
