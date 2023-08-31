@@ -26,7 +26,6 @@ const OneRecipe = () => {
     getDataApi();
   }, [recipe_id]);
 
-  
   useEffect(() => {
     const specificRecipeId = dataRecipe.find((oneRecipe) => {
       return oneRecipe.id === parseInt(recipe_id);
@@ -35,14 +34,22 @@ const OneRecipe = () => {
   }, [dataRecipe, recipe_id]);
 
   if (!specificRecipe) {
-    return <p>Načítání receptu...</p>;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <p className="text-gray-600 text-lg">Načítání receptu...</p>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <img src={specificRecipe.image} alt="" />
-      <h1>{specificRecipe.title}</h1>
-      <p>{specificRecipe.recipe_text}</p>
+    <div className="bg-white rounded-lg shadow-md max-w-screen-md mx-auto mt-8 m-5 p-6">
+      <img
+        src={specificRecipe.image}
+        alt=""
+        className="w-full h-auto rounded-md mb-4"
+      />
+      <h1 className="text-3xl font-semibold mb-4">{specificRecipe.title}</h1>
+      <p className="text-gray-700 leading-relaxed">{specificRecipe.recipe_text}</p>
     </div>
   );
 };

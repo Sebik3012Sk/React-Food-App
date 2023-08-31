@@ -40,7 +40,7 @@ const AddRecipe = () => {
   }
 
   return (
-    <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-md mx-auto mt-8 p-6 bg-slate-200 rounded-lg shadow-sm">
         <h2 className="text-2xl font-semibold mb-4">Add a New Recipe</h2>
         <form onSubmit={AddRecipeFormSubmit} className="space-y-4">
             <div>
@@ -94,7 +94,7 @@ const AddRecipe = () => {
             <div className="flex justify-end">
                 <button
                     type="submit"
-                    className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline-blue active:bg-blue-700"
+                    className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline-blue active:bg-red-600"
                 >
                     Přidat Recept
                 </button>
