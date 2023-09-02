@@ -2,23 +2,30 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Hamburger from 'hamburger-react';
 
-export default function Navbar() {
+const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
-  const [visibleIconMenu , setVisibleIconMenu] = useState(true) 
 
   return (
     <>
-      <Hamburger color="white"   style={{ position: 'absolute', left: 0 }} toggled={isOpen} toggle={setOpen} />
+      <Hamburger color="white" style={{ position: 'absolute', left: 0 }} toggled={isOpen} toggle={setOpen} />
       {isOpen && (
         <div>
           <nav>
-            <ul className="flex flex-col items-center justify-center w-full h-max bg-red-950 fixed left-0 right-0 text-white shadow-sm shadow-white">
+            <ul className="flex flex-col items-start justify-center w-full h-max bg-gray-950 opacity-70 fixed left-0 right-0 text-white shadow-sm shadow-white">
               <Link
                 className="m-2 hover:border-b-2 border-white p-2 transition-all"
                 to="/"
                 onClick={() => setOpen(false)}
               >
-                <li>Home</li>
+                <li>Domov</li>
+              </Link>
+
+              <Link
+                className="m-2 hover:border-b-2 border-white p-2 transition-all"
+                to="/all-recipes"
+                onClick={() => setOpen(false)}
+              >
+                <li>Všechny Recepty</li>
               </Link>
 
               <Link
@@ -26,7 +33,7 @@ export default function Navbar() {
                 to="/main-food"
                 onClick={() => setOpen(false)}
               >
-                <li>Main Food</li>
+                <li>Hlavní Jídla</li>
               </Link>
 
               <Link
@@ -34,7 +41,7 @@ export default function Navbar() {
                 to="/deserts"
                 onClick={() => setOpen(false)}
               >
-                <li>Deserts</li>
+                <li>Dezerty</li>
               </Link>
 
               <Link
@@ -42,12 +49,24 @@ export default function Navbar() {
                 to="/appetizers"
                 onClick={() => setOpen(false)}
               >
-                <li>Appetizers</li>
+                <li>Předkrmy</li>
               </Link>
             </ul>
           </nav>
         </div>
       )}
+
+            <ul className="flex justify-end w-full h-max text-black ml-[-45px]">
+              <Link to="/login" className="m-2 hover:border-b-2 border-black font-bold text-lg mt-[-20px] p-2 pt-0 pb-0 transition-all">
+                <li>Přihlásit Se</li>
+              </Link>
+
+              <Link to="/register" className="m-2 hover:border-b-2 border-black font-bold text-lg mt-[-20px] p-2 pt-0 pb-0 transition-all">
+                <li>Registrace</li>
+              </Link>
+            </ul>
     </>
   );
 }
+
+export default Navbar;

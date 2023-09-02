@@ -1,7 +1,6 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
 import HeaderText from '../components/HeaderText';
-import MainButton from '../components/MainButton';
 import bg_image from "../images/bg-image.jpg";
 import Fotogallery from '../components/Fotogallery';
 import Footer from '../components/Footer';
@@ -14,12 +13,14 @@ const Home = () => {
             <NavBar />
 
             <div className="flex justify-center items-center content-center">
-              <MainButton id={1} buttonText="All Recipes" />
+              <div className="mt-16">
+                  <HeaderText font_weight={"font-semibold"} size="3xl" headerText="Mnamky Mého Tatky" color="white" underline={false} />
+              </div>
             </div>
 
 
-            <section id="fotogallery" className="mt-[80%] sm:mt-[30%]">
-              <HeaderText font_weight={"font-semibold"} headerText="Fotogallery" color="black" underline={true} />
+            <section id="fotogallery" className="mt-[75%] text-white sm:mt-[30%]">
+              <HeaderText font_weight={"font-semibold"} size="2xl" headerText="Fotogalerie" color="black" underline={true} />
               <Fotogallery />
             </section>
 
