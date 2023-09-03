@@ -8,6 +8,7 @@ import AdminPage from "./admin/AdminPage";
 import AddRecipe from "./admin/AddRecipe";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import FotogalleryPage from "./pages/FotogalleryPage";
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/deserts" element={ <Deserts /> } />
           <Route path="/all-recipes" element={ <AllRecipes /> } />
           <Route path="/one-recipe/:recipe_id" element={ <OneRecipe /> } />
+          <Route path="/fotogallery-page" element={ <FotogalleryPage /> } />
           <Route path="/admin-system/:password" element={ <AdminPage /> } />
           <Route path="/add-recipe" element={ <AddRecipe /> } />
           <Route path="/register" element={ <Register /> } />
