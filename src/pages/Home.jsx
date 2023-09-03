@@ -13,7 +13,7 @@ const Home = () => {
             <NavBar />
 
             <div className="flex justify-center items-center content-center">
-              <div className="mt-16">
+              <div className="mt-24">
                   <HeaderText font_weight={"font-semibold"} size="3xl" headerText="Mnamky Mého Tatky" color="white" underline={false} />
               </div>
             </div>

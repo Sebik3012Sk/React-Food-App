@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import * as CryptoJS from "crypto-js";
-import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
@@ -11,8 +10,6 @@ const Register = () => {
   const [passwordAgain,setPasswordAgain] = useState("");
   const [registerStatus,setRegisterStatus] = useState(true); 
   const [redirectUrlStatus , setRedirectUrlStatus] = useState(false);
-
-  const navigate = useNavigate();
 
   const registerFormSubmit = async (e) => {
 
@@ -48,6 +45,8 @@ const Register = () => {
       //   throw new Error("Error With Navigate to Home Page");
       // }
     }
+
+    
   }
 
   return (

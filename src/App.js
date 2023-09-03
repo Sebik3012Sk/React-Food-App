@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import MainFood from "./pages/MainFood";
 import Deserts from "./pages/Deserts";
 import AllRecipes from "./pages/AllRecipes";
-import OneRecipe from "./components/OneRecipe";
+import OneRecipe from "./pages/OneRecipe";
 import AdminPage from "./admin/AdminPage";
 import AddRecipe from "./admin/AddRecipe";
 import Login from "./pages/Login";
