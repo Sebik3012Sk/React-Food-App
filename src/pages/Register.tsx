@@ -1,44 +1,42 @@
 import { FC, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import bcrypt from "bcryptjs-react";
+import axios from "axios";
 
 const Register: FC = () => {
+  // Use states
   const [error, setError] = useState<string | null>(null);
-  const [email, setEmail] = useState<string>();
-  const [password, setPassword] = useState<string>("");
-  const [passwordConfirm, setPasswordConfirm] = useState<string>();
+  const [email, setEmail] = useState<string>("")
+  const [password, setPassword] = useState<string>("")
+  const [confirmPassword, setConfirmPassword] = useState<string>("")
 
-  const navigate = useNavigate();
+  // Navigate from react-router-dom
+  const navigate = useNavigate()
 
-  const handleValidation = async (e: any) => {
-    e.preventDefault();
-    if (password !== passwordConfirm) {
-      return setError("Heslá sa nezhodujú");
+  // Handle submit
+  const handleSubmit = async (e: any) => {
+    e.preventDefault()
+
+    // Clear errors
+    setError("")
+    
+    // Check if passwords match
+    if (password !== confirmPassword) {
+      return setError("Passwords do not match.")
     }
 
-    const data = {
-      email: email,
-      password: bcrypt.hashSync(password, 9),
-    };
-
+    // Try register user
     try {
-      const response = await fetch("http://localhost:8080/register-user", {
-        method: "post",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      await axios.post("http://localhost:8080/register-user", {
+        email,
+        password
+      })
 
-      if (response.ok) {
-        setError(null);
-        navigate("/");
-      }
-    } catch (error) {
-      console.log("Error", error);
+      // Redirect to register
+      navigate("/login")
+    } catch (error: any) {
+      setError(error.response.data)
     }
-  };
+  }
 
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-slate-200 rounded-xl shadow-lg shadow-red-500">
@@ -61,7 +59,7 @@ const Register: FC = () => {
       </Link>
 
       <h2 className="text-2xl font-semibold mb-4">Registrace</h2>
-      <form onSubmit={handleValidation} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="email" className="block text-gray-600">
             Email
@@ -74,6 +72,7 @@ const Register: FC = () => {
             className="w-full border border-gray-300 rounded-lg py-2 px-3 focus:outline-none focus:border-blue-400"
             placeholder="Enter Email"
             onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
         </div>
 
@@ -90,6 +89,7 @@ const Register: FC = () => {
             className="w-full border border-gray-300 rounded-lg py-2 px-3 focus:outline-none focus:border-blue-400"
             placeholder="Enter Password"
             onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
         </div>
 
@@ -105,7 +105,8 @@ const Register: FC = () => {
             maxLength={15}
             className="w-full border border-gray-300 rounded-lg py-2 px-3 focus:outline-none focus:border-blue-400"
             placeholder="Enter Password Again"
-            onChange={(e) => setPasswordConfirm(e.target.value)}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            value={confirmPassword}
           />
           {error && <span className="text-red-500">{error}</span>}
         </div>
