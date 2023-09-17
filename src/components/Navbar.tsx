@@ -1,15 +1,18 @@
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Hamburger from "hamburger-react";
+import { AuthContext } from "../assets/authContext";
 
 const Navbar: FC = () => {
   const [isOpen, setOpen] = useState<boolean>(false);
+  //@ts-ignore
+  const {currentUser, logout} = useContext(AuthContext)
 
   return (
-    <div className="w-full h-16 bg-gray-950 opacity-70">
+    <div className="w-full h-16 bg-gray-950 opacity-70 flex items-center relative">
       <Hamburger color="white" toggled={isOpen} toggle={setOpen} />
       {isOpen && (
-        <div>
+        <div className="absolute top-16 left-0">
           <nav>
             <ul className="flex flex-col items-start justify-center w-full h-max bg-gray-950 opacity-70 text-white shadow-sm shadow-white">
               <Link
@@ -55,8 +58,17 @@ const Navbar: FC = () => {
           </nav>
         </div>
       )}
-
-      <ul className="flex justify-end w-full h-max text-white ml-[-45px]">
+      {currentUser ? (
+        <ul className="flex justify-end w-full h-max text-white ml-[-45px]">
+          <li className="font-bold cursor-pointer">
+            <span className="m-2 hover:border-b-2 border-white font-bold text-lg mt-[-20px] p-2 pt-0 pb-0 transition-all">{currentUser.email}</span>
+          </li>
+          <li className="font-bold cursor-pointer">
+            <span className="m-2 hover:border-b-2 border-white font-bold text-lg mt-[-20px] p-2 pt-0 pb-0 transition-all" onClick={logout}>Odhlasit</span>
+          </li>
+        </ul>
+      ): (  
+      <ul className="flex justify-end items-center h-full w-full text-white ml-[-45px]">
         <Link
           to="/login"
           className="m-2 hover:border-b-2 border-white font-bold text-lg mt-[-20px] p-2 pt-0 pb-0 transition-all"
@@ -71,6 +83,7 @@ const Navbar: FC = () => {
           <li className="font-bold">Registrace</li>
         </Link>
       </ul>
+      )}
     </div>
   );
 };
