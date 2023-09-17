@@ -1,6 +1,7 @@
-import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../assets/authContext";
+import axios from "axios";
 
 const Login = () => {
   // Use states
@@ -11,6 +12,10 @@ const Login = () => {
   // Navigate from react-router-dom
   const navigate = useNavigate()
 
+  //@ts-ignore
+  const {currentUser, setCurrentuser} = useContext(AuthContext)
+  console.log("Current user: ", currentUser)
+
   // Handle submit
   const handleSubmit = async (e: any) => {
     e.preventDefault()
@@ -20,10 +25,8 @@ const Login = () => {
 
     // Try login user
     try {
-      await axios.post("http://localhost:8080/login-user", {
-        email,
-        password
-      }, {withCredentials: true})
+      const response = await axios.post("http://localhost:8080/login-user", {email, password}, {withCredentials: true})
+      setCurrentuser(response.data)
 
       // Redirect to index
       navigate("/")
