@@ -1,7 +1,7 @@
 import { FC, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Hamburger from "hamburger-react";
-import { AuthContext } from "../assets/authContext";
+import { AuthContext } from "../context/authContext";
 
 const Navbar: FC = () => {
   const [isOpen, setOpen] = useState<boolean>(false);
